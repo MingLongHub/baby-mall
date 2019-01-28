@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.znsd.mall.dao.IDemoDao">
+
+	<insert id="addTest" parameterType="com.znsd.mall.bean.DemoBean">
+		insert into ums_admin
+		(username,password) values (#{userName}, #{password});
+	</insert>
+	<select id="queryTest" parameterType="Integer" resultType="com.znsd.mall.bean.DemoBean">
+		select username userName,
+		password
+		from ums_admin where ums_admin.id = #{userId}
+	</select>
+	<update id="updateTest" parameterType="com.znsd.mall.bean.DemoBean">
+		update ums_admin set username = #{userName},#{password} where id = #{userId}
+	</update>
+	
+	<delete id="deleteTest" parameterType="Integer">
+		delete from ums_admin where id = #{userId}
+	</delete>
+</mapper>
